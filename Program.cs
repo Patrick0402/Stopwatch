@@ -92,8 +92,19 @@
             Console.Clear();
             Console.WriteLine(currentTime + "!!!");
             Console.WriteLine("Stopwatch finalizado...");
-            Console.WriteLine("Pressione qualquer tecla para continuar...");
-            Console.ReadKey(true);
+            Console.WriteLine("Pressione 1 para retornar ao menu ou qualquer outra tecla para sair.");
+            char key = Console.ReadKey(true).KeyChar;
+            if (key == '1')
+            {
+                Menu();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Saindo...");
+                Thread.Sleep(2500);
+                Environment.Exit(0);
+            }
         }
     }
 
