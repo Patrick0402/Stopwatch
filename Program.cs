@@ -65,11 +65,23 @@
 
             }
 
-            Console.Clear();
-            Console.WriteLine($"Iniciando o cronômetro para {time}{type}");
-            Thread.Sleep(2500);
-            Start(time * multiplier);
+            PreStart(time, type, multiplier);
+        }
 
+        static void PreStart(int time, char type, int multiplier)
+        {
+            Console.Clear();
+            Console.WriteLine($"Iniciando o cronômetro para {time}{(type == 's' ? " segundo(s)" : " minuto(s)")}...");
+            Thread.Sleep(1500);
+            Console.Clear();
+            Console.Write("Preparar... ");
+            Thread.Sleep(750);
+            Console.Write("Apontar... ");
+            Thread.Sleep(750);
+            Console.Write("Fogo!");
+            Thread.Sleep(1000);
+
+            Start(time * multiplier);
         }
 
         static void Start(int time)
